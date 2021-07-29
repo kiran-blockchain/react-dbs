@@ -1,12 +1,24 @@
+import Anchor from "../../anchor";
 import "./style.css";
 const Header = () => {
   const companyName = "DBS";
-  const menuItems = ["Home", "Features", "Pricing","About","Contact","Apparels"];
+  const menuItems = [{
+    cssclass:"nav-link",
+    linktext:"Home",
+    link:"#home"
+},
+{
+  cssclass:"nav-link",
+  linktext:"Login",
+  link:"#login"
+}
+
+];
 
   const buildMenuItems = () => {
-    const result = menuItems.map(x => {
-      return <li>
-        <a class="nav-link" href="#">{x}</a>
+    const result = menuItems.map((x,index) => {
+      return <li key={index}>
+        <Anchor details ={x}/>
       </li>
     });
     return <ul class="navbar-nav">{result}</ul>

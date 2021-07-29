@@ -1,9 +1,8 @@
+import Login from "./components/login";
 
 const Content = ()=> {
     return (
-      <div>
-        <h1>I am the main content</h1>
-      </div>
+     <Login/>
     );
   }
   
