@@ -3,7 +3,7 @@ import { useSelector } from "react-redux"
 const ReceiverOne = () => {
    let counter = useSelector(x=>{
        console.log(x);
-       return x;
+       return x.multiplier
    });
     return (
         <div>

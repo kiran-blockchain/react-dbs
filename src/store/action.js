@@ -5,3 +5,6 @@ export const increment =()=>{
 export const decrement =()=>{
     return {type:'Decrement'}
 }
+export const multiply =()=>{
+    return {type:'Multiply'}
+}

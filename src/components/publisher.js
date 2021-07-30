@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { decrement, increment } from "../store/action";
+import { decrement, increment, multiply } from "../store/action";
 
 const Publisher = () => {
     let dispatch = useDispatch();
@@ -12,6 +12,9 @@ const Publisher = () => {
             <button id="btn" onClick={e=>{
                 dispatch(decrement())
             }}>Decrement</button>
+            <button id="btn" onClick={e=>{
+                dispatch(multiply())
+            }}>Multiply</button>
         </div>
     )
 }
