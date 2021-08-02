@@ -1,19 +1,51 @@
-import logo from './logo.svg';
-import './App.css';
-import ReceiverOne from './components/ReceiverOne';
-import ReceiverTwo from './components/ReceiverTwo';
-import Publisher from './components/publisher';
-import CountryList from './components/country';
+import React from "react";
+import { BrowserRouter as Router, Switch } from "react-router-dom";
+import AuthProvider from "contexts/auth";
+import CommonProvider from "contexts/common";
+import ProductsProvider from "contexts/products";
+import CartProvider from "contexts/cart";
+import CheckoutProvider from "contexts/checkout";
+import RouteWrapper from "layouts/RouteWrapper";
+import AuthLayout from "layouts/AuthLayout";
+import CommonLayout from "layouts/CommonLayout";
+import AuthPage from "pages/auth";
+import HomePage from "pages/home";
+import CheckoutPage from "pages/checkout";
+import "assets/scss/style.scss";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <Publisher/>
-      <ReceiverOne/>
-      <ReceiverTwo/>
-      <CountryList/>
-    </div>
+    <AuthProvider>
+      <CommonProvider>
+        <ProductsProvider>
+          <CartProvider>
+            <CheckoutProvider>
+              <Router>
+                <Switch>
+                  <RouteWrapper
+                    path="/"
+                    exact
+                    component={HomePage}
+                    layout={CommonLayout}
+                  />
+                  <RouteWrapper
+                    path="/checkout"
+                    component={CheckoutPage}
+                    layout={CommonLayout}
+                  />
+                  <RouteWrapper
+                    path="/auth"
+                    component={AuthPage}
+                    layout={AuthLayout}
+                  />
+                </Switch>
+              </Router>
+            </CheckoutProvider>
+          </CartProvider>
+        </ProductsProvider>
+      </CommonProvider>
+    </AuthProvider>
   );
-}
+};
 
 export default App;
