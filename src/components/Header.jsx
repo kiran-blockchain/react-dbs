@@ -8,6 +8,7 @@ import {
 } from "contexts/cart";
 import { CommonDispatchContext, setSearchKeyword } from "contexts/common";
 import CartPreview from "components/CartPreview";
+import FilterList from "./FilterList";
 
 const Header = (props) => {
   const { items: cartItems, isCartOpen } = useContext(CartStateContext);
@@ -75,7 +76,9 @@ const Header = (props) => {
             />
           </form>
         </div>
-
+        <div className="search">
+          <FilterList/>
+        </div>
         <div className="cart">
           <div className="cart-info">
             <table>

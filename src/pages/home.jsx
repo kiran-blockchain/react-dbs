@@ -6,6 +6,9 @@ import {
   getProducts
 } from "contexts/products";
 import { CommonStateContext } from "contexts/common";
+import { UserProvider } from "contexts/user";
+import Consumer from "contexts/consumer";
+import { ConsumerWrapper } from "contexts/consumer";
 
 const Home = () => {
   const { products, isLoading, isLoaded } = useContext(ProductsStateContext);
@@ -40,6 +43,9 @@ const Home = () => {
             return <ProductCard key={data.id} data={data} />;
           })}
       </div>
+      <UserProvider>
+         <ConsumerWrapper/>
+      </UserProvider>
     </div>
   );
 };
