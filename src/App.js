@@ -3,6 +3,7 @@ import './App.css';
 import ReceiverOne from './components/ReceiverOne';
 import ReceiverTwo from './components/ReceiverTwo';
 import Publisher from './components/publisher';
+import CountryList from './components/country';
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
       <Publisher/>
       <ReceiverOne/>
       <ReceiverTwo/>
+      <CountryList/>
     </div>
   );
 }
